@@ -109,6 +109,7 @@ static NSString *kSlideAnimationId = @"KalSwitchMonths";
   
   if ([hitView isKindOfClass:[KalTileView class]]) {
     KalTileView *tile = (KalTileView*)hitView;
+      [[NSNotificationCenter defaultCenter] postNotificationName:@"PlanbookSelectedDateFromPopUp" object:[tile.date NSDate]];
     if (tile.belongsToAdjacentMonth) {
       self.highlightedTile = tile;
     } else {

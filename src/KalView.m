@@ -97,7 +97,7 @@ static const CGFloat kMonthLabelHeight = 17.f;
   [previousMonthButton release];
   
   // Draw the selected month name centered and at the top of the view
-  CGRect monthLabelFrame = CGRectMake((self.width/2.0f) - (kMonthLabelWidth/2.0f),
+  CGRect monthLabelFrame = CGRectMake((self.frame.size.width/2.0f) - (kMonthLabelWidth/2.0f),
                                       kHeaderVerticalAdjust,
                                       kMonthLabelWidth,
                                       kMonthLabelHeight);
@@ -112,11 +112,12 @@ static const CGFloat kMonthLabelHeight = 17.f;
   [headerView addSubview:headerTitleLabel];
   
   // Create the next month button on the right side of the view
-  CGRect nextMonthButtonFrame = CGRectMake(self.width - kChangeMonthButtonWidth,
+  CGRect nextMonthButtonFrame = CGRectMake(self.frame.size.width - kChangeMonthButtonWidth,
                                            kHeaderVerticalAdjust,
                                            kChangeMonthButtonWidth,
                                            kChangeMonthButtonHeight);
   UIButton *nextMonthButton = [[UIButton alloc] initWithFrame:nextMonthButtonFrame];
+    NSLog(@"added next month with:%@", NSStringFromCGRect(nextMonthButtonFrame));
   [nextMonthButton setAccessibilityLabel:NSLocalizedString(@"Next month", nil)];
   [nextMonthButton setImage:[UIImage imageNamed:@"Kal.bundle/kal_right_arrow.png"] forState:UIControlStateNormal];
   nextMonthButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
